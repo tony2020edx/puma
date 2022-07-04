@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import csv
+import pandas as pd
 
 start_url = "https://in.puma.com/in/en/collections/collections-football/collections-football-manchester-city-fc"
 
