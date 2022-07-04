@@ -8,6 +8,7 @@ web_page = requests.get(start_url)
 soup = BeautifulSoup(web_page.content, 'html.parser')
 
 product_links = []
+
 for link in soup.find_all('a', class_='product-tile-title product-tile__title pdp-link line-item-limited line-item-limited--2'):
     if link['href'] not in product_links:
         product_links.append('https://in.puma.com/' + link['href'])
