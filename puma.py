@@ -24,3 +24,4 @@ with open('puma_manchester_city.csv', 'w') as csv_file:
         price = product_soup.find('span', class_='value').text
         product_description = product_soup.find('div', class_='content', itemprop="description").text
         writer.writerow([product_name, price, product_description, product_url])
+
