@@ -1,0 +1,16 @@
+
+Tutorial - https://theautomationzone.blogspot.com/2020/07/xpath-practice.html
+
+Youtube - https://www.youtube.com/watch?v=NhG__BL8zFo
+
+"""
+
+
+//*[@Attribute='Value'] - basic syntax of XPath
+
+//tagname[@attribute='value'] - if more than one attribute have the same class
+
+//p[@name = 'a' and @id = 'b'] - if multiple values have same attribute and diffent other attributes
+
+//span[@id='link']/../@href - navigating from child to parent
+
