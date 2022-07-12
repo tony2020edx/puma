@@ -55,7 +55,7 @@ for link in soup.find_all('a',
     if link['href'] not in product_links:
         product_links.append('https://in.puma.com/' + link['href'])
 
-with open('puma_manchester_city.csv', 'w') as csv_file:
+with open('puma_manchester_city1.csv', 'w') as csv_file:
     writer = csv.writer(csv_file)
     writer.writerow(['Product Name', 'Price', 'Description', 'Link'])
 
