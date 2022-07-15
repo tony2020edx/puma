@@ -45,9 +45,7 @@ with open("imdb_data.csv", "w") as f:
         movie_name = dom.xpath('//h1[@data-testid="hero-title-block__title"]/text()')[0]
         movie_year = dom.xpath('//a[@class="ipc-link ipc-link--baseAlt ipc-link--inherit-color sc-8c396aa2-1 WIUyh"]/text()')[0]
         genre = dom.xpath('//span[@class="ipc-chip__text"]/text()')
-        director_name = dom.xpath(
-            '//a[@class="ipc-metadata-list-item__list-content-item ipc-metadata-list-item__list-content-item--link"]/text()')[
-            0]
+        director_name = dom.xpath('//a[@class="ipc-metadata-list-item__list-content-item ipc-metadata-list-item__list-content-item--link"]/text()')[0]
         rating = dom.xpath('//span[@class="sc-7ab21ed2-1 jGRxWM"]/text()')[0]
         actors_list = dom.xpath('//a[@data-testid="title-cast-item__actor"]/text()')
 
