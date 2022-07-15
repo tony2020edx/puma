@@ -1,22 +1,9 @@
-import requests
-from bs4 import BeautifulSoup
-import csv
-import time
-import random
-
-all_product_urls = []
-
-base_url = 'https://www.adidas.co.in/sneakers'
-
-web_page = requests.get(base_url)
-soup = BeautifulSoup(web_page.content, 'html.parser')
-
-for link in soup.find_all('a', class_= "glass-product-card__assets-link"):
-
-    pdp_url = link.get('href')
-    pdp_url = "https://www.adidas.co.in/" + pdp_url
-
-    all_product_urls.append(pdp_url)
-    print(pdp_url)
 
 
+url = "https://www.imdb.com/title/tt0032976/?pf_rd_m=A2FGELUUNOQJNL&pf_rd_p=1a264172-ae11-42e4-8ef7-7fed1973bb8f&pf_rd_r=0QVVY8DMTSRE0X7AWPAX&pf_rd_s=center-1&pf_rd_t=15506&pf_rd_i=top&ref_=chttp_tt_231"
+
+#remove ? and everthing after it
+
+new_url = url.split("?")[0]
+
+print(new_url)
