@@ -7,8 +7,7 @@ import json
 from unidecode import unidecode
 
 start_url = "https://www.imdb.com/chart/top"
-header = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"}
+header = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"}
 movie_urls = []
 
 response = requests.get(start_url, headers=header)
