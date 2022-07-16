@@ -6,11 +6,6 @@ import random
 import json
 from unidecode import unidecode
 
-
-def time_delay():
-    time.sleep(random.randint(2, 5))
-
-
 start_url = "https://www.imdb.com/chart/top"
 header = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"}
@@ -38,6 +33,10 @@ def write_to_json(new_data, filename='data_v1.json'):
         file_data.append(new_data)
         file.seek(0)
         json.dump(file_data, file, indent=4)
+
+
+def time_delay():
+    time.sleep(random.randint(2, 5))
 
 
 for movie_url in movie_urls:
