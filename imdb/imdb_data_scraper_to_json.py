@@ -62,4 +62,5 @@ for movie_url in movie_urls:
                    'actors': actors_list})
 
     time_delay()
-    print("{} written to json file".format(rank))
+    print("{}% data is written to json file".format(round((rank * 100) / len(movie_urls))))
+
