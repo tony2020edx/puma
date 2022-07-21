@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 from lxml import etree as et
 import pandas as pd
 from twilio.rest import Client
+import sys
 
 header = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36",
@@ -36,7 +37,7 @@ def get_master_price(url):
     return None
 
 
-price_drop_list = []
+price_drop_products = []
 price_drop_list_url = []
 
 for product_url in amazon_urls:
@@ -51,26 +52,28 @@ for product_url in amazon_urls:
 
     if price < get_master_price(product_url):
         change_percentage = round((get_master_price(product_url) - price) * 100 / get_master_price(product_url))
-        print(' There is a {}'.format(change_percentage), '% drop in price for {}'.format(product_name))
-        print('Click here to purchase {}'.format(product_url))
 
-        price_drop_list.append(product_name)
-        price_drop_list_url.append(product_url)
+        if change_percentage > 10:
+            print(' There is a {}'.format(change_percentage), '% drop in price for {}'.format(product_name))
+            print('Click here to purchase {}'.format(product_url))
+            price_drop_products.append(product_name)
+            price_drop_list_url.append(product_url)
 
-messege = "There is a drop in price for {}".format(len(price_drop_list)) + " products." + "Click to purchase"
+if len(price_drop_products) == 0:
+    sys.exit('No Price drop found')
+
+messege = "There is a drop in price for {}".format(len(price_drop_products)) + " products." + "Click to purchase"
 
 for items in price_drop_list_url:
     messege = messege + "\n" + items
 
-account_sid = 'ACfeb15a884ed55d7f9d6ef5b803fdd811'
-auth_token = '54e681e9436133f2f5ac46a4ada30a86'
+account_sid = 'ACfgkfllsfleb1gg5a8hhh84ed55d7f9d6ggef5b803fdd811'
+auth_token = '54e681e9436133f2f5ac46a34kk23lpm4ada3fksj0a86'
 
 client = Client(account_sid, auth_token)
 message = client.messages.create(
-    from_='+19707071122',
+    from_='number',
     body=messege,
-    to='+919605703702'
+    to='sender number'
 )
-
-print(message.sid)
-print(message.body)
+sys.exit('Price drop found')
